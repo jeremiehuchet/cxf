@@ -786,17 +786,17 @@ public abstract class AbstractCodegenMoho extends AbstractMojo {
         }
     }
 
-    private File getJavaExecutable() throws IOException, MojoExecutionException {
+    private File getJavaExecutable() throws IOException {
         if (javaExecutable != null) {
-            javaExecutable = SystemUtils.getJavaHome() + File.separator + "bin" + File.separator + "java";
-            getLog().warn("Toolchains are ignored, 'javaExecutable' parameter is set to " + javaExecutable);
+            getLog().debug("Plugin configuration set the 'javaExecutable' parameter to " + javaExecutable);
         } else {
             Toolchain tc = toolchainManager.getToolchainFromBuildContext("jdk", mavenSession);
             if (tc != null) {
-                getLog().info("Using toolchain: " + tc);
+                getLog().info("Using toolchain " + tc + " to find the java executable");
                 javaExecutable = tc.findTool("java");
             } else {
-                throw new MojoExecutionException("Unknown toolchain 'jdk'. Verify the toolchain configuration");
+                getLog().debug("The java executable is set to default value");
+                javaExecutable = SystemUtils.getJavaHome() + File.separator + "bin" + File.separator + "java";
             }
         }
         String exe = SystemUtils.IS_OS_WINDOWS && !javaExecutable.endsWith(".exe") ? ".exe" : "";
@@ -808,7 +808,7 @@ public abstract class AbstractCodegenMoho extends AbstractMojo {
                                       + "' doesn't exist or is not a file." 
                                       + "Verify the <javaExecutable/> parameter or toolchain configuration.");
         }
-        getLog().debug("The java executable is " + javaExe.getAbsolutePath());
+        getLog().info("The java executable is " + javaExe.getAbsolutePath());
         return javaExe;
     }
     
