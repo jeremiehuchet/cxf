@@ -5,6 +5,6 @@ jdk:
   - openjdk7
 #  - openjdk6 # build fails with openjdk6
 
-install: mvn -B dependency:resolve dependency:resolve-plugins -DexcludeReactor=true -DexcludeGroupIds=org.apache.cxf > /dev/null
+install: mvn -B -q dependency:resolve dependency:resolve-plugins -DexcludeReactor=true -DexcludeGroupIds=org.apache.cxf
 
-script: mvn -B -Ptravis test
+script: mvn -B -q -Ptravis test
