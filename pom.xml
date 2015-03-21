@@ -214,6 +214,7 @@
                         <configuration>
                             <excludes>
                                 <exclude>**/ws/discovery/WSDiscoveryClientTest.java</exclude>
+                                <exclude>**/systest/http_jetty/ThreadPoolTest.java</exclude>
                             </excludes>
                         </configuration>
                     </plugin>
