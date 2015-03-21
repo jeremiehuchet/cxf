@@ -215,6 +215,7 @@
                             <excludes>
                                 <exclude>**/ws/discovery/WSDiscoveryClientTest.java</exclude>
                                 <exclude>**/systest/http_jetty/ThreadPoolTest.java</exclude>
+                                <exclude>**/osgi/itests/NoAriesBlueprintTest.java</exclude>
                             </excludes>
                         </configuration>
                     </plugin>
