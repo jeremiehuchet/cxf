@@ -5,6 +5,9 @@ jdk:
   - openjdk7
 #  - openjdk6 # build fails with openjdk6
 
-install: mvn -B -q dependency:resolve dependency:resolve-plugins -DexcludeReactor=true -DexcludeGroupIds=org.apache.cxf
+install:
+  - ifconfig
+  - cat /etc/hosts
+  - mvn -B -q dependency:resolve dependency:resolve-plugins -DexcludeReactor=true -DexcludeGroupIds=org.apache.cxf
 
 script: mvn -B -q -Ptravis test
