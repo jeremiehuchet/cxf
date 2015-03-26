@@ -4,10 +4,13 @@ jdk:
   - oraclejdk7
   - openjdk7
 #  - openjdk6 # build fails with openjdk6
+env:
+  - TEST_SUITE=unit
+  - TEST_SUITE=integration
 
 install:
   - ifconfig
   - cat /etc/hosts
   - mvn -B -q dependency:resolve dependency:resolve-plugins -DexcludeReactor=true -DexcludeGroupIds=org.apache.cxf
 
-script: mvn -B -q -Ptravis test -Djava.net.preferIPv4Stack=true
+script: mvn -B -q -Ptravis -P${TEST_SUITE}-testsuite test -Djava.net.preferIPv4Stack=true
