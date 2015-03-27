@@ -214,9 +214,9 @@
                         <configuration>
                             <excludes>
                                 <exclude>**/ws/discovery/WSDiscoveryClientTest.java</exclude>
-                                <exclude>org/apache/cxf/**/fortest/**</exclude>
-                                <exclude>org/apache/cxf/**/itest/**</exclude>
-                                <exclude>org/apache/cxf/**/systest/**</exclude>
+                                <exclude>org/apache/cxf/**/fortest/**/*.java</exclude>
+                                <exclude>org/apache/cxf/**/itest/**/*.java</exclude>
+                                <exclude>org/apache/cxf/**/systest/**/*.java</exclude>
                             </excludes>
                         </configuration>
                     </plugin>
@@ -232,9 +232,9 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <includes>
-                                <include>org/apache/cxf/**/fortest/**</include>
-                                <include>org/apache/cxf/**/itest/**</include>
-                                <include>org/apache/cxf/**/systest/**</include>
+                                <include>org/apache/cxf/**/fortest/**/*.java</include>
+                                <include>org/apache/cxf/**/itest/**/*.java</include>
+                                <include>org/apache/cxf/**/systest/**/*.java</include>
                             </includes>
                             <excludes>
                                 <exclude>**/systest/http_jetty/ThreadPoolTest.java</exclude>
